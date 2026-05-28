@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div style="font-size: 60px; color: #2e7d32; margin-bottom: 15px;">✓</div>
                 <h2 style="color: #2e7d32; margin-bottom: 10px;">Terima Kasih</h2>
                 <p style="font-size: 16px; color: #333; line-height: 1.6;">
-                    Terima kasih sudah melakukan submit data untuk <br><strong>${nama}</strong> pada tanggal <strong>${date}</strong>.<br><br>
+                    Terima kasih sudah melakukan submit data untuk <br><strong>${storeName}</strong> pada tanggal <strong>${date}</strong>.<br><br>
                     Akses update SPG&BA telah ditutup.
                 </p>
             </div>
