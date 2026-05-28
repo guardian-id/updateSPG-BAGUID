@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h2 style="color: #2e7d32; margin-bottom: 10px;">Terima Kasih</h2>
                 <p style="font-size: 16px; color: #333; line-height: 1.6;">
                     Terima kasih sudah melakukan submit data untuk <br><strong>${storeName}</strong> pada tanggal <strong>${date}</strong>.<br><br>
-                    Akses update untuk kombinasi toko dan tanggal ini telah ditutup.
+                    Akses update SPG&BA telah ditutup.
                 </p>
             </div>
         `;
