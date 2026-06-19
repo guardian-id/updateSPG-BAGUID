@@ -6,13 +6,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnSubmit = document.getElementById('btnSubmit');
     const responseMessage = document.getElementById('responseMessage');
 
-    // 1. Ambil parameter dari URL
+    // 1. Ambil parameter terenkripsi 'q' dari URL
     const urlParams = new URLSearchParams(window.location.search);
-    const tokoParam = urlParams.get('toko');
-    const brandParam = urlParams.get('brand');
-    const namaParam = urlParams.get('nama');
-    const emailParam = urlParams.get('email');
-    const tanggalParam = urlParams.get('tanggal');
+    const encryptedParam = urlParams.get('q'); // Membaca parameter aman ?q=...
+
+    let tokoParam = null;
+    let brandParam = null;
+    let namaParam = null;
+    let emailParam = null;
+    let tanggalParam = null;
+
+    // Proses membongkar string Base64 kembali ke parameter asli jika ada
+    if (encryptedParam) {
+        try {
+            // Mengubah Base64 kembali menjadi teks biasa (toko=xxx&brand=yyy...)
+            const decodedString = atob(encryptedParam);
+            const decodedParams = new URLSearchParams(decodedString);
+            
+            tokoParam = decodedParams.get('toko');
+            brandParam = decodedParams.get('brand');
+            namaParam = decodedParams.get('nama');
+            emailParam = decodedParams.get('email');
+            tanggalParam = decodedParams.get('tanggal');
+        } catch (e) {
+            console.error("Gagal membaca enkripsi URL:", e);
+            formBox.innerHTML = `<div style="text-align: center; padding: 20px; color: red; font-weight: bold;">AKSES DITOLAK: Tautan rusak atau format tidak valid.</div>`;
+            return;
+        }
+    }
 
     // Fungsi jika terjadi error/ditolak di awal halaman
     const showBlockMessage = (msg) => {
